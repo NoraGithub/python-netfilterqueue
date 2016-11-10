@@ -146,6 +146,9 @@ cdef class NetfilterQueue:
             # running queues
         if nfq_bind_pf(self.h, self.af) < 0:
             raise OSError("Failed to bind family %s. Are you root?" % self.af)
+            #test why it outputs this info
+            print nfq_bind_pf(self.h, self.af)
+            print self.h, self.af,self
 
     def __dealloc__(self):
         if self.qh != NULL:
